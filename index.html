@@ -3,9 +3,211 @@
     <head>
         <meta charset="utf-8">
         <title>Welcome to the ArtZub page</title>
+        <style>
+            html, body {
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                font: 13px Helvetica, arial, freesans, clean, sans-serif;
+                position: relative;
+            }
+
+            body {
+                width: 100%;
+            }
+
+            .header, .footer {
+                position: relative;
+                width: 23%;
+                padding-left: 1em;
+                float: left;
+            }
+
+            .header h1 {
+                font-size: 3em;
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+
+            .header h1 a {
+                text-decoration: none;
+                color: #000;
+            }
+
+            .footer {
+                font-size: 1em;
+                position: fixed;
+                bottom: 1em;
+            }
+
+            .footer aside {
+                position: absolute;
+                right: 0;
+                width: 150px;
+                text-align: right;
+                color: #9b9b9b;
+            }
+
+            .section {
+                float: right;
+                display: block;
+                overflow: auto;
+                width: 75%;
+            }
+
+            .ava {
+                padding: 3px;
+                background: #eee;
+                border: 1px solid #bbb;
+                border-radius: 3px;
+                display: inline-block;
+            }
+
+            .ava img {
+                width: 10em;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            .img-title {
+                color: #9b9b9b;
+                margin: 0;
+                padding: 0;
+            }
+
+            h3, .nav {
+                font-variant: small-caps;
+            }
+
+            .fb {
+                background-image: url(https://www.facebook.com/favicon.ico);
+            }
+
+            .vk {
+                background-image: url(http://vk.com/favicon.ico);
+            }
+
+            .tw {
+                background-image: url(https://twitter.com/favicon.ico);
+            }
+
+            .gp {
+                background-image: url(https://ssl.gstatic.com/s2/oz/images/faviconr3.ico);
+            }
+
+            .gm {
+                background-image: url(https://mail.google.com/favicon.ico);
+            }
+
+            .in {
+                background-image: url(https://www.linkedin.com/favicon.ico);
+            }
+
+            .hr {
+                background-image: url(http://habrahabr.ru/favicon.ico);
+            }
+
+            .gh {
+                background-image: url(https://github.com/favicon.ico);
+            }
+
+            .bl {
+                background-image: url(http://artzub.blogspot.ru/favicon.ico);
+            }
+
+            .so {
+                background-image: url(http://cdn.sstatic.net/stackoverflow/img/favicon.ico);
+            }
+
+            .links,
+            .nav {
+                padding-left: 1em;
+                margin-top: 0;
+            }
+
+            .img-title li,
+            .links li {
+                background-position: left;
+                background-repeat: no-repeat;
+                background-size: 16px;
+            }
+
+            .links li {
+                padding-left: 22px;
+                margin-bottom: .5em;
+            }
+
+            .nav {
+                font-size: 1em;
+                font-weight: bolder;
+            }
+
+            h2 {
+                font-size: 2em;
+                text-rendering: optimizeLegibility;
+                position: relative;
+                padding-left: 1em;
+            }
+
+            h2 a {
+                position: absolute;
+                left: 0;
+                color: #ddd;
+                text-decoration: none;
+                width: 100%;
+            }
+        </style>
     </head>
     <body>
-        <h1><span>Art</span>em <span>Zub</span>kov</h1>
-        <hr>
+        <header class="header">
+            <h1>
+                <a href="./">
+                    <span>Art</span><span>em </span>
+                    <span>Zub</span><span>kov</span>
+                </a>
+            </h1>
+            <div class="ava">
+                <img src="http://www.gravatar.com/avatar/52b34f14832c29dc5292af6d236d11c7.png?s=200x200" alt="avatar"/>
+            </div>
+            <ul class="img-title">
+                <li class="gm" style="padding-left: 18px;"><a href="mailto:artzub@gmail.com">artzub@gmail.com</a></li>
+                <li>Krasnoyarsk, Russia</li>
+            </ul>
+
+            <h3 style="margin-bottom: 2px">navigation</h3>
+            <ul class="nav">
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#publications">publications</a></li>
+                <li><a href="#about">about</a></li>
+            </ul>
+
+            <h3>links</h3>
+            <ul class="links">
+                <li class="in"><a href="http://www.linkedin.com/in/artzub">artzub</a></li>
+                <li class="gh"><a href="https://github.com/artzub">artzub</a></li>
+                <li class="so"><a href="http://stackoverflow.com/users/820262/artzub">artzub</a></li>
+                <li class="gp"><a href="http://profiles.google.com/artzub">+artzub</a></li>
+                <li class="fb"><a href="http://fb.com/artzub">artzub</a></li>
+                <li class="tw"><a href="http://twitter.com/artzub">@artzub</a></li>
+                <li class="hr"><a href="http://habr.ru/users/artzub">artzub</a></li>
+                <li class="vk"><a href="http://vk.com/artzub">artzub</a></li>
+                <li class="bl"><a href="http://artzub.blogspot.ru/">artzub</a></li>
+            </ul>
+        </header>
+        <section class="section">
+            <h2><a name="projects" href="#projects">#</a> Projects</h2>
+            <div id="pjs"></div>
+            <h2><a name="publications" href="#publications">#</a> Publications</h2>
+            <div id="pub"></div>
+            <h2><a name="about" href="#about">#</a> About</h2>
+            <div id="aboutMe"></div>
+        </section>
+        <footer class="footer">
+            <aside>November, 2013</aside>
+            <a href="./">Artem Zubkov</a>
+        </footer>
     </body>
 </html>
