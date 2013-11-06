@@ -4,6 +4,26 @@
         <meta charset="utf-8">
         <title>Welcome to the ArtZub page</title>
         <style>
+            .fb { background-image: url(https://www.facebook.com/favicon.ico); }
+            .vk { background-image: url(http://vk.com/favicon.ico); }
+            .tw { background-image: url(https://twitter.com/favicon.ico); }
+            .gp { background-image: url(https://ssl.gstatic.com/s2/oz/images/faviconr3.ico); }
+            .gm { background-image: url(https://mail.google.com/favicon.ico); }
+            .in { background-image: url(https://www.linkedin.com/favicon.ico); }
+            .hr { background-image: url(http://habrahabr.ru/favicon.ico); }
+            .gh { background-image: url(https://github.com/favicon.ico); }
+            .bl { background-image: url(http://artzub.blogspot.ru/favicon.ico); }
+            .so { background-image: url(http://cdn.sstatic.net/stackoverflow/img/favicon.ico); }
+            .sh { background-image: url(http://stihi.ru/favicon.ico); }
+            .ig { background-image: url(http://d36xtkk24g8jdx.cloudfront.net/bluebar/b3bd594/images/ico/favicon.ico); }
+            .icq { background-image: url(http://www.icq.com/favicon.ico); }
+            .vly { background-image: url(http://visual.ly/favicon.ico); }
+            .vorg {
+                background-image: url(http://visualizing.org/favicon.ico);
+                background-position: 0 -1px  !important;
+            }
+            .skype { background-image: url(http://www.skype.com/favicon.ico); }
+
             html, body {
                 padding: 0;
                 margin: 0;
@@ -11,14 +31,31 @@
                 height: 100%;
                 font: 13px Helvetica, arial, freesans, clean, sans-serif;
                 position: relative;
+                overflow: hidden;
             }
 
             body {
                 width: 100%;
             }
 
+            h1, h2, h3 {
+                text-shadow: 1px 1px 2px darkgray;
+            }
+
+            a {
+                color: #4682b4;
+                text-decoration: none;
+                border-bottom: 1px dotted #4682b4;
+            }
+
+            a:hover {
+                color: #689AC4;
+                border-bottom: 1px solid #386890;
+            }
+
             .header, .footer {
                 position: relative;
+                min-width: 150px;
                 width: 23%;
                 padding-left: 1em;
                 float: left;
@@ -31,6 +68,7 @@
             }
 
             .header h1 a {
+                border: 0;
                 text-decoration: none;
                 color: #000;
             }
@@ -52,8 +90,10 @@
             .section {
                 float: right;
                 display: block;
-                overflow: auto;
+                overflow-y: auto;
+                height: 100%;
                 width: 75%;
+                min-width: 250px;
             }
 
             .ava {
@@ -62,10 +102,13 @@
                 border: 1px solid #bbb;
                 border-radius: 3px;
                 display: inline-block;
+                float: left;
+                margin-right: 1em;
             }
 
             .ava img {
                 width: 10em;
+                margin-bottom: -3px;
             }
 
             ul {
@@ -76,50 +119,11 @@
                 color: #9b9b9b;
                 margin: 0;
                 padding: 0;
+                display: inline-block;
             }
 
             h3, .nav {
                 font-variant: small-caps;
-            }
-
-            .fb {
-                background-image: url(https://www.facebook.com/favicon.ico);
-            }
-
-            .vk {
-                background-image: url(http://vk.com/favicon.ico);
-            }
-
-            .tw {
-                background-image: url(https://twitter.com/favicon.ico);
-            }
-
-            .gp {
-                background-image: url(https://ssl.gstatic.com/s2/oz/images/faviconr3.ico);
-            }
-
-            .gm {
-                background-image: url(https://mail.google.com/favicon.ico);
-            }
-
-            .in {
-                background-image: url(https://www.linkedin.com/favicon.ico);
-            }
-
-            .hr {
-                background-image: url(http://habrahabr.ru/favicon.ico);
-            }
-
-            .gh {
-                background-image: url(https://github.com/favicon.ico);
-            }
-
-            .bl {
-                background-image: url(http://artzub.blogspot.ru/favicon.ico);
-            }
-
-            .so {
-                background-image: url(http://cdn.sstatic.net/stackoverflow/img/favicon.ico);
             }
 
             .links,
@@ -128,16 +132,25 @@
                 margin-top: 0;
             }
 
-            .img-title li,
-            .links li {
-                background-position: left;
+            .img-title span,
+            .links span,
+            .prop span,
+            .spec span {
+                background-position: left 1px;
                 background-repeat: no-repeat;
                 background-size: 16px;
+                padding-left: 20px;
+                padding-bottom: 1px;
+            }
+
+            .links li,
+            .spec li {
+                margin-bottom: .5em;
             }
 
             .links li {
-                padding-left: 22px;
-                margin-bottom: .5em;
+                float: left;
+                margin-left: .5em;
             }
 
             .nav {
@@ -154,60 +167,355 @@
 
             h2 a {
                 position: absolute;
+                width: 100%;
                 left: 0;
                 color: #ddd;
                 text-decoration: none;
+            }
+
+            .nick span:nth-child(odd) {
+                color: red;
+            }
+
+            .spec {
+                padding-left: 1em;
+                color: #000;
+                margin-top: 1px;
+            }
+
+            .spec>li:before {
+                content: "— ";
+            }
+
+            .spec ul {
+                padding: 0;
+                margin: 0;
+            }
+
+            h3 {
+                padding-left: 2px;
+                color: #444444;
+                text-shadow: 1px 1px 0 white;
+                background: #ddd;
+            }
+
+            .layer {
                 width: 100%;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .top {
+                z-index: 100;
+            }
+
+            .bottom {
+                z-index: 0;
+            }
+
+            .follow {
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .follow>div {
+                width: 250px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                border: 3px solid #ddd;
+                position: relative;
+                overflow: hidden;
+                background: #f9f9f9;
+                display: inline-block;
+            }
+
+            .follow>div>div {
+                position: relative;
+                overflow: hidden;
+                border-bottom: 2px solid #ddd;
+            }
+
+            .follow>div>div img {
+                width: 100%;
+                margin-bottom: -3px;
+            }
+
+            .follow>div>div>div {
+                background: rgba(50, 89, 118, 0.9);
+                position: absolute;
+                bottom: 0;
+                z-index: 10;
+                width: 250px;
+                text-align: center;
+                color: #e3eef5;
+                text-shadow: 1px 1px 0 black;
+                border-top: 1px solid #E4EBF2;
+            }
+
+            .follow>div>div>div div {
+                width: 100%;
+                max-height: 0;
+                padding-bottom: 2px;
+            }
+
+            .follow>div>div:hover>div div {
+                max-height: 250px;
+                border-top: 1px solid #E4EBF2;
+
+                -webkit-transition: max-height 0.2s ease-in-out 0.4s;
+                -moz-transition: max-height 0.2s ease-in-out 0.4s;
+                -o-transition: max-height 0.2s ease-in-out 0.4s;
+                transition: max-height 0.2s ease-in-out 0.4s;
+            }
+
+            h4 {
+                margin: 0;
+                margin-bottom: 2px;
+                width: 100%;
+            }
+
+            h4 a {
+                text-decoration: none;
+                width: 100%;
+                display: inline-block;
+                color: #C2D2E1;
+                border-bottom: none;
+            }
+
+            h4 a:hover {
+                color: #E4EBF2;
+                border-bottom: none;
+            }
+
+            .prop {
+                margin: 0;
+                padding: .5em;
+                text-align: left;
+            }
+
+            .prop li {
+                margin-bottom: 2px;
+            }
+
+            @media screen and (max-width: 480px) {
+                html, body {
+                    overflow: auto;
+                }
+
+                .footer {
+                    position: inherit;
+                    padding: 0;
+                }
+
+                .header, .footer, .section {
+                    padding: 0;
+                    margin: 0;
+                    width: 320px;
+                    float: none;
+                    overflow: hidden;
+                    height: auto;
+                }
+
+                .header h1 {
+                    margin-top: 0;
+                }
             }
         </style>
     </head>
     <body>
-        <header class="header">
-            <h1>
-                <a href="./">
-                    <span>Art</span><span>em </span>
-                    <span>Zub</span><span>kov</span>
-                </a>
-            </h1>
-            <div class="ava">
-                <img src="http://www.gravatar.com/avatar/52b34f14832c29dc5292af6d236d11c7.png?s=200x200" alt="avatar"/>
-            </div>
-            <ul class="img-title">
-                <li class="gm" style="padding-left: 18px;"><a href="mailto:artzub@gmail.com">artzub@gmail.com</a></li>
-                <li>Krasnoyarsk, Russia</li>
-            </ul>
+        <!--<canvas class="layer bottom">Your browser don't support Canvas.</canvas>-->
+        <!--<div class="layer top">-->
+            <header class="header">
+                <h1>
+                    <a href="./" class="nick">
+                        <span>Art</span><span>em </span>
+                        <span>Zub</span><span>kov</span>
+                    </a>
+                </h1>
+                <div style="overflow: hidden;">
+                    <div class="ava">
+                        <img src="http://brainstorage.habrastorage.org/avatars/3/37/37486/w232h232_1350259__1_.jpg" alt=""/>
+                        <!--<img src="http://www.gravatar.com/avatar/52b34f14832c29dc5292af6d236d11c7.png?s=200x200" alt="avatar"/>-->
+                    </div>
+                    <ul class="img-title" style="margin-top: 5px">
+                        <li>Krasnoyarsk, Russia</li>
+                        <li><span class="gm"></span><a href="mailto:artzub@gmail.com">artzub@gmail.com</a></li>
+                        <li><span class="skype"></span><a href="callto:artzubalex">artzubalex</a></li>
+                        <li><span class="icq"></span><a href="http://www.icq.com/people/227194966">artzub</a></li>
+                    </ul>
+                </div>
 
-            <h3 style="margin-bottom: 2px">navigation</h3>
-            <ul class="nav">
-                <li><a href="#projects">projects</a></li>
-                <li><a href="#publications">publications</a></li>
-                <li><a href="#about">about</a></li>
-            </ul>
+                <h3 style="margin-bottom: 0">Specification</h3>
+                <ul class="spec">
+                    <li>Data visualization
+                        <ul>
+                            <li><span class="vorg"></span><a href="http://visualizing.org/users/artzub">artzub</a>
+                                <span class="vly"></span><a href="http://visual.ly/users/artzub">artzub</a></li>
+                        </ul>                        
+                    </li>
+                    <li>Software developing</li>
+                </ul>
 
-            <h3>links</h3>
-            <ul class="links">
-                <li class="in"><a href="http://www.linkedin.com/in/artzub">artzub</a></li>
-                <li class="gh"><a href="https://github.com/artzub">artzub</a></li>
-                <li class="so"><a href="http://stackoverflow.com/users/820262/artzub">artzub</a></li>
-                <li class="gp"><a href="http://profiles.google.com/artzub">+artzub</a></li>
-                <li class="fb"><a href="http://fb.com/artzub">artzub</a></li>
-                <li class="tw"><a href="http://twitter.com/artzub">@artzub</a></li>
-                <li class="hr"><a href="http://habr.ru/users/artzub">artzub</a></li>
-                <li class="vk"><a href="http://vk.com/artzub">artzub</a></li>
-                <li class="bl"><a href="http://artzub.blogspot.ru/">artzub</a></li>
-            </ul>
-        </header>
-        <section class="section">
-            <h2><a name="projects" href="#projects">#</a> Projects</h2>
-            <div id="pjs"></div>
-            <h2><a name="publications" href="#publications">#</a> Publications</h2>
-            <div id="pub"></div>
-            <h2><a name="about" href="#about">#</a> About</h2>
-            <div id="aboutMe"></div>
-        </section>
-        <footer class="footer">
-            <aside>November, 2013</aside>
-            <a href="./">Artem Zubkov</a>
-        </footer>
+                <h3>Links</h3>
+                <ul class="links">
+                    <li><span class="in"></span><a href="http://www.linkedin.com/in/artzub">artzub</a></li>
+                    <li><span class="gh"></span><a href="https://github.com/artzub">artzub</a></li>
+                    <li><span class="so"></span><a href="http://stackoverflow.com/users/820262/artzub">artzub</a></li>
+                    <li><span class="gp"></span><a href="http://profiles.google.com/artzub">+artzub</a></li>
+                    <li><span class="fb"></span><a href="http://fb.com/artzub">artzub</a></li>
+                    <li><span class="tw"></span><a href="http://twitter.com/artzub">@artzub</a></li>
+                    <li><span class="hr"></span><a href="http://habr.ru/users/artzub">artzub</a></li>
+                    <li><span class="vk"></span><a href="http://vk.com/artzub">artzub</a></li>
+                    <li><span class="ig"></span><a href="http://instagram.com/artzub">artzub</a></li>
+                    <li><span class="bl"></span><a href="http://artzub.blogspot.ru/">artzub</a></li>
+                    <li title="my poetry"><span class="sh"></span><a href="http://stihi.ru/avtor/zubart">zubart</a></li>
+                </ul>
+            </header>
+            <section class="section">
+                <div>
+                    <h2><a name="projects" href="#projects">#</a> Projects</h2>
+                    <div id="pjs" class="follow">
+                        <div>
+                            <div>
+                                <a href="http://artzub.com/ghv">
+                                    <img src="https://f.cloud.github.com/assets/134249/1274358/39cb552a-2d96-11e3-9936-c892a2f81bb6.gif" alt=""/>
+                                </a>
+                                <div>
+                                    <h4><a href="http://artzub.com/ghv">GitHub Visualizer</a></h4>
+                                    <div>
+                                        Сервис позволяет пользователям просматривать статистику репозиториев в динамической визуализации. Используются следующих три основных типа визуализации: Force, Chart and Dinamyc Visualization like as Code_swarm.
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="prop">
+                                <li><a href="http://d3js.org">d3js</a>, <a href="http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/">canvas</a>, <a href="http://www.w3.org/TR/SVG11/">svg</a></li>
+                                <li><span class="gh"></span><a href="https://github.com/artzub/GitHubVisualizer">GitHubVisualizer</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="http://artzub.com/d3/wbca">
+                                    <img src="http://brainstorage.habrastorage.org/item_custom_image_images/6/68/68628/w206h160_screenshot_11.png" alt=""/>
+                                </a>
+                                <div>
+                                    <h4><a href="http://artzub.com/d3/wbca">WorldBank Contract Awards</a></h4>
+                                    <div>
+                                        Необходимо было использовать информацию из World Bank’s Major Contract Awards dataset чтобы отобразить долговые отношения между странами участниками World Bank.
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="prop">
+                                <li><a href="http://d3js.org">d3js</a>, <a href="http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/">canvas</a>, <a href="http://www.w3.org/TR/SVG11/">svg</a></li>
+                                <li><span class="gh"></span><a href="https://github.com/artzub/wbgds/tree/smy">wbgds/smy</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="http://www.visualizing.org/sprint/launch/50407">
+                                    <img src="http://brainstorage.habrastorage.org/item_custom_image_images/6/68/68630/w206h160_screenshot_12.png" alt=""/>
+                                </a>
+                                <div>
+                                    <h4><a href="http://www.visualizing.org/sprint/launch/50407">Distribution of Grant Awards in Fiscal Year 2013</a></h4>
+                                    <div>
+                                        Необходимо было использовать информацию из World Bank’s Major Contract Awards dataset чтобы отобразить долговые отношения между странами участниками World Bank.
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="prop">
+                                <li><a href="http://d3js.org">d3js</a>, <a href="http://www.w3.org/TR/SVG11/">svg</a>, <a href="https://github.com/artzub/d3-plugins/tree/master/sankey">sankey.js</a></li>
+                                <li><span class="gh"></span><a href="https://github.com/artzub/wbgds/tree/v23">wbgds/v23</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="http://artzub.com/d3/olyspace/">
+                                    <img src="http://brainstorage.habrastorage.org/item_custom_image_images/6/68/68638/w206h160_screenshot_16.png" alt=""/>
+                                </a>
+                                <div>
+                                    <h4><a href="http://artzub.com/d3/olyspace/">Space of Olympic Games</a></h4>
+                                    <div>
+                                        Визуализация Олимпийских играх для соревновании по программированию и визуализации данных посвященных лондонской олимпиаде 2012.
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="prop">
+                                <li><a href="http://d3js.org">d3js</a>, <a href="http://www.w3.org/TR/SVG11/">svg</a></li>
+                                <li><span class="gh"></span><a href="https://github.com/artzub/olyspace">olyspace</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="http://artzub.com/oly/">
+                                    <img src="http://brainstorage.habrastorage.org/item_custom_image_images/6/68/68642/w206h160_pdf.png" alt=""/>
+                                </a>
+                                <div>
+                                    <h4><a href="http://artzub.com/oly/">Graph Olympics Games</a></h4>
+                                    <div>
+                                        Graph relationship between sportmen and kinds of olympics games.
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="prop">
+                                <li><a href="https://github.com/raphv/gexf-js">gexf-js</a>, <a href="http://gephi.org/">GePhi</a>, C#</li>
+                                <li><span class="gh"></span><a href="https://github.com/artzub/gexf-js/tree/oly">oly</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="http://www.visualizing.org/sprint/launch/39151">
+                                    <img src="http://brainstorage.habrastorage.org/item_custom_image_images/6/68/68648/w206h160_screenshot_18.png" alt=""/>
+                                </a>
+                                <div>
+                                    <h4><a href="http://www.visualizing.org/sprint/launch/39151">Global Water Experiment</a></h4>
+                                    <div>
+                                        Main goal were make useful interactive infographic, which demonstrate the data from the Global Water Experiment.
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="prop">
+                                <li><a href="http://d3js.org">d3js</a>, <a href="http://www.w3.org/TR/SVG11/">svg</a></li>
+                                <li><span class="gh"></span><a href="https://github.com/artzub/Global-Water-Experiment">Global-Water-Experiment</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="https://code.google.com/p/loggencsg/">
+                                    <img src="http://brainstorage.habrastorage.org/item_custom_image_images/6/68/68646/w206h160_inderect_black_smallfont.png" alt=""/>
+                                </a>
+                                <div>
+                                    <h4><a href="https://code.google.com/p/loggencsg/">LoggenCSG</a></h4>
+                                    <div>
+                                        Generator logs for visualizators: code_swarm, gource, logstalgia, gephi.
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="prop">
+                                <li>C#, <a href="https://developers.google.com/+/api/">Google+ API</a></li>
+                                <li><span class="gh"></span><a href="https://github.com/artzub/LoggenCSG">LoggenCSG</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2><a name="articles" href="#articles">#</a> Articles</h2>
+                    <div id="pub" class="follow">
+                    </div>
+                </div>
+
+                <div>
+                    <h2><a name="about" href="#about">#</a> About</h2>
+                    <div id="aboutMe" class="follow">
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <aside>November, 2013</aside>
+                <a href="./">Artem Zubkov</a>
+            </footer>
+        <!--</div>-->
     </body>
 </html>
