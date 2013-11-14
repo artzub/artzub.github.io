@@ -179,6 +179,11 @@
 
             .nick span:nth-child(odd) {
                 color: #ff0000;
+                -o-animation: nickc 8s infinite alternate;
+                -ms-animation: nickc 8s infinite alternate;
+                -moz-animation: nickc 8s infinite alternate;
+                -webkit-animation: nickc 8s infinite alternate;
+                animation: nickc 8s infinite alternate;
             }
 
             .nick span:nth-child(even) {
@@ -189,6 +194,42 @@
                 -webkit-animation: nick 8s ease-in-out 2s infinite alternate;
                 animation: nick 8s ease-in-out 2s infinite alternate;
                 /* 30s easy-in*/
+            }
+
+            @-ms-keyframes nickc {
+                from {
+                    color: #000000;
+                }
+                to {
+                    color: #ff0000;
+                }
+            }
+
+            @-moz-keyframes nickc {
+                from {
+                    color: #000000;
+                }
+                to {
+                    color: #ff0000;
+                }
+            }
+
+            @-webkit-keyframes nickc {
+                from {
+                    color: #000000;
+                }
+                to {
+                    color: #ff0000;
+                }
+            }
+
+            @keyframes nickc {
+                from {
+                    color: #000000;
+                }
+                to {
+                    color: #ff0000;
+                }
             }
 
             @-ms-keyframes nick {
@@ -276,6 +317,7 @@
 
             .follow {
                 text-align: center;
+                vertical-align: middle;
                 overflow: hidden;
             }
 
@@ -288,6 +330,7 @@
                 overflow: hidden;
                 background: #f9f9f9;
                 display: inline-block;
+                vertical-align: middle;
             }
 
             .follow>div>div {
@@ -544,6 +587,42 @@
                             <ul class="prop">
                                 <li><a href="http://d3js.org">d3js</a>, <a href="http://www.w3.org/TR/SVG11/">svg</a></li>
                                 <li><span class="gh"></span><a href="https://github.com/artzub/Global-Water-Experiment">Global-Water-Experiment</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="http://www.youtube.com/watch?v=klpXIvc_fcA&feature=c4-overview&list=UUazku6b5iZlAhYvPbn5au4Q">
+                                    <img src="http://i1.ytimg.com/vi/klpXIvc_fcA/mqdefault.jpg" alt=""/>
+                                </a>
+                                <div>
+                                    <h4><a href="http://www.youtube.com/watch?v=klpXIvc_fcA&feature=c4-overview&list=UUazku6b5iZlAhYvPbn5au4Q">Динамика числености населения (1970-2010 гг.)</a></h4>
+                                    <div>
+                                        Визуализация динамики числености населения на основе статистики с 1970 по 2010 годы.
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="prop">
+                                <li>C#, <a href="https://code.google.com/p/gource/">Gource</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="http://www.youtube.com/watch?v=3poNeQHUKrs&list=TLRkvr182Ph7c27Tp3eNLTlU_u1UOo0C1L">
+                                    <img src="http://i1.ytimg.com/vi/3poNeQHUKrs/mqdefault.jpg" alt=""/>
+                                </a>
+                                <div>
+                                    <h4><a href="http://www.youtube.com/watch?v=3poNeQHUKrs&list=TLRkvr182Ph7c27Tp3eNLTlU_u1UOo0C1L">Пользовательская активность в Google+</a></h4>
+                                    <div>
+                                        Визуализация активности пользоваетлей в профиле Google+ в соц. сети Google+.
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="prop">
+                                <li>C#,
+                                    <a href="https://developers.google.com/+/api/">Google+ API</a>,
+                                    <a href="https://code.google.com/p/gource/">Gource</a>,
+                                    <a href="https://code.google.com/p/loggencsg/">LoggenCSG</a>
+                                </li>
                             </ul>
                         </div>
                         <div>
