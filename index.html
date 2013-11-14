@@ -2,7 +2,7 @@
 <html lang="en-us">
     <head>
         <meta charset="utf-8">
-        <title>Welcome to the ArtZub page</title>
+        <title>Artem Zubkov</title>
         <style>
             .fb { background-image: url(https://www.facebook.com/favicon.ico); }
             .vk { background-image: url(http://vk.com/favicon.ico); }
@@ -71,6 +71,10 @@
                 border: 0;
                 text-decoration: none;
                 color: #000;
+            }
+
+            .header>div {
+                overflow: hidden;
             }
 
             .footer {
@@ -174,7 +178,61 @@
             }
 
             .nick span:nth-child(odd) {
-                color: red;
+                color: #ff0000;
+            }
+
+            .nick span:nth-child(even) {
+                display: inline-block;
+                -o-animation: nick 8s ease-in-out 2s infinite alternate;
+                -ms-animation: nick 8s ease-in-out 2s infinite alternate;
+                -moz-animation: nick 8s ease-in-out 2s infinite alternate;
+                -webkit-animation: nick 8s ease-in-out 2s infinite alternate;
+                animation: nick 8s ease-in-out 2s infinite alternate;
+                /* 30s easy-in*/
+            }
+
+            @-ms-keyframes nick {
+                from {
+                    max-width: 200px;
+                    opacity: 1;
+                }
+                to {
+                    max-width: 0;
+                    opacity: 0;
+                }
+            }
+
+            @-moz-keyframes nick {
+                from {
+                    max-width: 200px;
+                    opacity: 1;
+                }
+                to {
+                    max-width: 0;
+                    opacity: 0;
+                }
+            }
+
+            @-webkit-keyframes nick {
+                from {
+                    max-width: 200px;
+                    opacity: 1;
+                }
+                to {
+                    max-width: 0;
+                    opacity: 0;
+                }
+            }
+
+            @keyframes nick {
+                from {
+                    max-width: 200px;
+                    opacity: 1;
+                }
+                to {
+                    max-width: 0;
+                    opacity: 0;
+                }
             }
 
             .spec {
@@ -267,6 +325,7 @@
 
                 -webkit-transition: max-height 0.2s ease-in-out 0.4s;
                 -moz-transition: max-height 0.2s ease-in-out 0.4s;
+                -ms-transition: max-height 0.2s ease-in-out 0.4s;
                 -o-transition: max-height 0.2s ease-in-out 0.4s;
                 transition: max-height 0.2s ease-in-out 0.4s;
             }
@@ -300,7 +359,9 @@
                 margin-bottom: 2px;
             }
 
-            @media screen and (max-width: 480px) {
+            @media screen
+                and (min-device-width : 320px)
+                and (max-device-width : 640px) {
                 html, body {
                     overflow: auto;
                 }
@@ -313,10 +374,10 @@
                 .header, .footer, .section {
                     padding: 0;
                     margin: 0;
-                    width: 320px;
                     float: none;
                     overflow: hidden;
                     height: auto;
+                    width: 100%;
                 }
 
                 .header h1 {
@@ -335,7 +396,8 @@
                         <span>Zub</span><span>kov</span>
                     </a>
                 </h1>
-                <div style="overflow: hidden;">
+
+                <div>
                     <div class="ava">
                         <img src="http://brainstorage.habrastorage.org/avatars/3/37/37486/w232h232_1350259__1_.jpg" alt=""/>
                         <!--<img src="http://www.gravatar.com/avatar/52b34f14832c29dc5292af6d236d11c7.png?s=200x200" alt="avatar"/>-->
@@ -348,31 +410,35 @@
                     </ul>
                 </div>
 
-                <h3 style="margin-bottom: 0">Specification</h3>
-                <ul class="spec">
-                    <li>Data visualization
-                        <ul>
-                            <li><span class="vorg"></span><a href="http://visualizing.org/users/artzub">artzub</a>
-                                <span class="vly"></span><a href="http://visual.ly/users/artzub">artzub</a></li>
-                        </ul>                        
-                    </li>
-                    <li>Software developing</li>
-                </ul>
+                <div>
+                    <h3 style="margin-bottom: 0">Specification</h3>
+                    <ul class="spec">
+                        <li>Data visualization
+                            <ul>
+                                <li><span class="vorg"></span><a href="http://visualizing.org/users/artzub">artzub</a>
+                                    <span class="vly"></span><a href="http://visual.ly/users/artzub">artzub</a></li>
+                            </ul>
+                        </li>
+                        <li>Software developing</li>
+                    </ul>
+                </div>
 
-                <h3>Links</h3>
-                <ul class="links">
-                    <li><span class="in"></span><a href="http://www.linkedin.com/in/artzub">artzub</a></li>
-                    <li><span class="gh"></span><a href="https://github.com/artzub">artzub</a></li>
-                    <li><span class="so"></span><a href="http://stackoverflow.com/users/820262/artzub">artzub</a></li>
-                    <li><span class="gp"></span><a href="http://profiles.google.com/artzub">+artzub</a></li>
-                    <li><span class="fb"></span><a href="http://fb.com/artzub">artzub</a></li>
-                    <li><span class="tw"></span><a href="http://twitter.com/artzub">@artzub</a></li>
-                    <li><span class="hr"></span><a href="http://habr.ru/users/artzub">artzub</a></li>
-                    <li><span class="vk"></span><a href="http://vk.com/artzub">artzub</a></li>
-                    <li><span class="ig"></span><a href="http://instagram.com/artzub">artzub</a></li>
-                    <li><span class="bl"></span><a href="http://artzub.blogspot.ru/">artzub</a></li>
-                    <li title="my poetry"><span class="sh"></span><a href="http://stihi.ru/avtor/zubart">zubart</a></li>
-                </ul>
+                <div>
+                    <h3>Links</h3>
+                    <ul class="links">
+                        <li><span class="in"></span><a href="http://www.linkedin.com/in/artzub">artzub</a></li>
+                        <li><span class="gh"></span><a href="https://github.com/artzub">artzub</a></li>
+                        <li><span class="so"></span><a href="http://stackoverflow.com/users/820262/artzub">artzub</a></li>
+                        <li><span class="gp"></span><a href="http://profiles.google.com/artzub">+artzub</a></li>
+                        <li><span class="fb"></span><a href="http://fb.com/artzub">artzub</a></li>
+                        <li><span class="tw"></span><a href="http://twitter.com/artzub">@artzub</a></li>
+                        <li><span class="hr"></span><a href="http://habr.ru/users/artzub">artzub</a></li>
+                        <li><span class="vk"></span><a href="http://vk.com/artzub">artzub</a></li>
+                        <li><span class="ig"></span><a href="http://instagram.com/artzub">artzub</a></li>
+                        <li><span class="bl"></span><a href="http://artzub.blogspot.ru/">artzub</a></li>
+                        <li title="my poetry"><span class="sh"></span><a href="http://stihi.ru/avtor/zubart">zubart</a></li>
+                    </ul>
+                </div>
             </header>
             <section class="section">
                 <div>
@@ -509,6 +575,17 @@
                 <div>
                     <h2><a name="about" href="#about">#</a> About</h2>
                     <div id="aboutMe" class="follow">
+                    </div>
+                </div>
+
+                <div>
+                    <h2><a name="misc" href="#misc">#</a> Misc</h2>
+                    <div id="miscs">
+                        <ul>
+                            <li><h3>some tips</h3>
+                                <script src="https://gist.github.com/artzub/7342336.js"></script>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
